@@ -1,24 +1,16 @@
-// @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
+import react from '@astrojs/react';
 
-import react from "@astrojs/react";
-
-import tailwind from "@astrojs/tailwind";
-
-import node from "@astrojs/node";
-
-// https://astro.build/config
 export default defineConfig({
-  output: "server",
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
-
+  output: 'server',
   adapter: node({
-    mode: "standalone",
+    mode: 'standalone'
   }),
-  server: { port: Number(process.env.PORT) || 4321 },
+  integrations: [react()],
+  vite: {
+    ssr: {
+      noExternal: ['path-to-regexp']
+    }
+  }
 });
