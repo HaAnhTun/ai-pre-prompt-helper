@@ -2,18 +2,5 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "astro",
-  "outputDirectory": "dist",
-  "builds": [
-    {
-      "src": "dist/server/entry.mjs",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/server/entry.mjs"
-    }
-  ]
+  "framework": "astro"
 }

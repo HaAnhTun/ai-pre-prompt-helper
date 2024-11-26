@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import vercel from "@astrojs/vercel/serverless";
 
 import react from "@astrojs/react";
 
@@ -17,8 +18,6 @@ export default defineConfig({
     }),
   ],
 
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: vercel(),
   server: { port: Number(process.env.PORT) || 4321 },
 });
