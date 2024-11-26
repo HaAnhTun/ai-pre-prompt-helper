@@ -239,7 +239,7 @@ export default function CommunicationInterpreter() {
                     </ReactMarkdown>
                   </motion.div>
 
-                  {interpretation.result && (
+
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -275,7 +275,6 @@ export default function CommunicationInterpreter() {
                         delay={0.9}
                       />
                     </motion.div>
-                  )}
                 </div>
               </CardFooter>
             </motion.div>
