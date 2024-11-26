@@ -23,7 +23,7 @@ interface InterpretationResult {
 
 interface Interpretation {
   process: string;
-  result?: InterpretationResult;
+  result: InterpretationResult;
 }
 
 interface ResultItemProps {
@@ -62,11 +62,6 @@ function stringToInterpretation(text: string): Interpretation | undefined {
     // If JSON parsing fails or is incomplete, return empty result
     console.error("Failed to parse JSON:", e);
   }
-
-  // Return with empty result if no valid JSON found
-  return {
-    process,
-  };
 }
 
 
