@@ -1,7 +1,15 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "astro"
-}
+    "builds": [
+      {
+        "src": "astro.config.mjs",
+        "use": "@astrojs/vercel"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/$1"
+      }
+    ]
+  }
+  
