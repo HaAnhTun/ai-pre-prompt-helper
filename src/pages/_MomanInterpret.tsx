@@ -99,7 +99,17 @@ export default function CommunicationInterpreter() {
     body: {
       context,
     },
+    onResponse: (response) => {
+      console.log("Raw API Response:", response);
+    },
+    onFinish: (result) => {
+      console.log("Completion Result:", result);
+      // Log parsed interpretation
+      const parsed = stringToInterpretation(result);
+      console.log("Parsed Interpretation:", parsed);
+    },
   });
+  
 
   const interpretation = stringToInterpretation(completion);
 
@@ -239,7 +249,7 @@ export default function CommunicationInterpreter() {
                     </ReactMarkdown>
                   </motion.div>
 
-
+                  {interpretation.result && (
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -275,6 +285,7 @@ export default function CommunicationInterpreter() {
                         delay={0.9}
                       />
                     </motion.div>
+                  )}
                 </div>
               </CardFooter>
             </motion.div>
